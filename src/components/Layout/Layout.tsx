@@ -13,8 +13,8 @@ const Layout = (props: Props) => {
   };
   
   return (
-    <div className="flex justify-between">
-      <div className="flex mt-8">
+    <div className="flex justify-between ">
+      <div className="flex mt-8 items-center">
         <NavLink
           className={({ isActive, isPending }) =>
             isPending
