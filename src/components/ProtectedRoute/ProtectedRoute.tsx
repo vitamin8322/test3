@@ -7,7 +7,7 @@ import { ACCESS_TOKEN_KEY } from "../../utils/constants";
 const ProtectedRoute = () => {
   const auth = Cookies.get(ACCESS_TOKEN_KEY);
 
-  return auth ? <Outlet /> : <Navigate to="/" replace />;
+  return auth ? <Outlet /> : <Navigate to={ROUTES.register} replace />;
 };
 
 export default ProtectedRoute;

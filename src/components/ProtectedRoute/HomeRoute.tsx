@@ -7,7 +7,7 @@ import { ACCESS_TOKEN_KEY } from "../../utils/constants";
 const HomeRoute = () => {
   const auth = Cookies.get(ACCESS_TOKEN_KEY);
 
-  return !auth ? <Outlet /> : <Navigate to="/home" replace />;
+  return !auth ? <Outlet /> : <Navigate to={ROUTES.home} replace />;
 };
 
 export default HomeRoute;

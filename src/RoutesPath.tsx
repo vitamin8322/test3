@@ -29,7 +29,7 @@ export const RoutesPath = (props: Props) => {
             <Route path={ROUTES.login2} element={<Login2 />} />
             <Route path={ROUTES.login1} element={<Login1 />} />
           </Route>
-          <Route path="/" element={<Register />} />
+          <Route path='/' element={<Register />} />
         </Routes>
       </Router>
     </Suspense>
