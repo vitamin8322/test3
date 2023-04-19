@@ -6,7 +6,7 @@ type Props = {};
 
 const Register = (props: Props) => {
   return (
-    <div className="flex items-center justify-center h-screen flex-col">
+    <div className="flex items-center justify-center h-full flex-col">
       <img src={logo} alt="logo" className="max-w-xs" />
         <RegisterForm />
     </div>
