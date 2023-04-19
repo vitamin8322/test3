@@ -1,24 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, useEffect, useState } from "react";
+import "./App.css";
+import { IntlProvider } from "react-intl";
+import { RoutesPath } from "./RoutesPath";
+import en from "../src/intl/en.json";
+import vi from "../src/intl/vi.json";
+import { log } from "console";
+
+export const LangContext = createContext({
+  locale: "",
+  setLocale: (locale: string) => {},
+});
+
+export const messages = {
+  en: en,
+  vi: vi,
+};
+
+function getMessages(locale: string): any {
+  if (locale.startsWith("vi")) {
+    return vi;
+  }
+  return en;
+}
 
 function App() {
+  const [locale, setLocale] = useState<string>(localStorage.getItem("lang") || "vi");
+
+  const messages = getMessages(locale);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <LangContext.Provider value={{ locale, setLocale }}>
+        <IntlProvider locale={locale} messages={messages}>
+          <RoutesPath />
+        </IntlProvider>
+      </LangContext.Provider>
     </div>
   );
 }
